@@ -15,8 +15,11 @@ def find_guard(map):
             if col in "^v<>":
                 return col, y, x
 
+
 class GuardInLoop(Exception):
     pass
+
+
 class Guard:
     def __init__(self, y, x, visited):
         self.y: int = y
@@ -37,7 +40,7 @@ class Guard:
         if 0 <= y < len(map) and 0 <= x < len(map[y]) and map[y][x] == "#":
             return self.rotate_guard()
         else:
-            
+
             self.y = y
             self.x = x
             return self
@@ -70,6 +73,7 @@ class Guard:
 
 class NorthFacingGuard(Guard):
     ORIENTATION = "^"
+
     def step(self):
         return self.y - 1, self.x
 
@@ -79,6 +83,7 @@ class NorthFacingGuard(Guard):
 
 class WestFacingGuard(Guard):
     ORIENTATION = "<"
+
     def step(self):
         return self.y, self.x - 1
 
@@ -88,6 +93,7 @@ class WestFacingGuard(Guard):
 
 class SouthFacingGuard(Guard):
     ORIENTATION = "v"
+
     def step(self):
         return self.y + 1, self.x
 
@@ -97,6 +103,7 @@ class SouthFacingGuard(Guard):
 
 class EastFacingGuard(Guard):
     ORIENTATION = ">"
+
     def step(self):
         return self.y, self.x + 1
 
@@ -121,11 +128,11 @@ def main(filename):
                 while guard.is_inside_map(map):
                     guard = guard.move_guard(map)
             except GuardInLoop:
-                sum +=1
+                sum += 1
             finally:
-                map[y][x] = col                
+                map[y][x] = col
     return sum
 
 
-EXPECTED_TEST_RESULT = 6 
+EXPECTED_TEST_RESULT = 6
 test_and_run(main, testfile, EXPECTED_TEST_RESULT, inputfile)

@@ -104,5 +104,5 @@ def main(filename):
     return len(guard.visited)
 
 
-EXPECTED_TEST_RESULT = 41 
+EXPECTED_TEST_RESULT = 41
 test_and_run(main, testfile, EXPECTED_TEST_RESULT, inputfile)
