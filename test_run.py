@@ -5,4 +5,5 @@ def test_and_run(func, testfile, expected_test_result, inputfile):
             f"Result doesn't match test, expected: {expected_test_result}, actual {test_result}"
         )
     else:
-        print("Test OK, Result:", func(inputfile))
+        print("Test OK")
+        print("Result:", func(inputfile))
