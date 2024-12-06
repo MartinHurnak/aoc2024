@@ -6,9 +6,9 @@ dirname = os.path.dirname(__file__)
 def test_and_run():
     test_result = main(os.path.join(dirname, "test.txt"))
     if test_result != EXPECTED_TEST_RESULT:
-        print("Result doesn't match test, expected: {EXPECTED_TEST_RESULT}, actual")
-
-    print("Test OK, Result:", main(os.path.join(dirname, "input.txt")))
+        print(f"Result doesn't match test, expected: {EXPECTED_TEST_RESULT}, actual {test_result}")
+    else:
+        print("Test OK, Result:", main(os.path.join(dirname, "input.txt")))
 
 
 def main(filename):

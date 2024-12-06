@@ -1,7 +1,7 @@
 import os
 import shutil
 
-for i in range(3, 26):
+for i in range(5, 26):
     dirname = str(i).zfill(2)
     os.makedirs(dirname, exist_ok=True)
     for filename in ["1.py", "2.py"]:
